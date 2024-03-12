@@ -27,10 +27,12 @@ int main(void)
         lcd_send_string("IEEE #1");
         wait_ms(200);
         lcd_clear();
-		lcd_set_position(1,1);
+		lcd_set_position(0,1);
 		lcd_send_string("Mohamed Tarek");
-		lcd_set_position(1,0);
-		lcd_send_string("Volunter n IEEE");
+		lcd_set_position(0,0);
+		wait_ms(200);
+        lcd_clear();
+		lcd_send_string("Volunteer n IEEE");
         wait_ms(200);
         lcd_clear();
         lcd_set_position(0,1);
