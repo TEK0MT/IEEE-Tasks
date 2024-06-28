@@ -1,3 +1,3 @@
-T:/IEEE/IEEE-Tasks/Bank_Sys/cmake-build-debug/CMakeFiles/Bank_Sys.dir
-T:/IEEE/IEEE-Tasks/Bank_Sys/cmake-build-debug/CMakeFiles/edit_cache.dir
-T:/IEEE/IEEE-Tasks/Bank_Sys/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+F:/IEEE/IEEE-Tasks/Bank_Sys/cmake-build-debug/CMakeFiles/Bank_Sys.dir
+F:/IEEE/IEEE-Tasks/Bank_Sys/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/IEEE/IEEE-Tasks/Bank_Sys/cmake-build-debug/CMakeFiles/rebuild_cache.dir
