@@ -1,3 +1,0 @@
-T:/IEEE/IEEE-Tasks/cpp/cmake-build-debug/CMakeFiles/cpp.dir
-T:/IEEE/IEEE-Tasks/cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
-T:/IEEE/IEEE-Tasks/cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
