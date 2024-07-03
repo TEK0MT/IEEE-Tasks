@@ -1,0 +1,3 @@
+T:/IEEE/IEEE-Tasks/quicksort/cmake-build-debug/CMakeFiles/quicksort.dir
+T:/IEEE/IEEE-Tasks/quicksort/cmake-build-debug/CMakeFiles/edit_cache.dir
+T:/IEEE/IEEE-Tasks/quicksort/cmake-build-debug/CMakeFiles/rebuild_cache.dir
