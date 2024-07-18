@@ -1,20 +1,20 @@
-#INTERRUPT
-##What is interrupt
+# INTERRUPT
+## What is interrupt
 when some interrupt happens like puhing button the Cpu stops excuting the code and start doing isr (interrupt service routine)
 
 
 
-#ISR
+# ISR
 - The code that being excuted when interrupt happens
 
 
 
-#What happens when interrupt happens
+# What happens when interrupt happens
 - The Cpu finishes the current instruction after that the data stored in stack and Cpu stop excuting the main code
 and the status of the CPU is stored in (PSW/PSR) registers and the PC (programm counter) refer to the vector ,then the isr being excuted
 when the interrupt finishes all the data restored from stack and psw
 
-#There are two types of interrupt :
+# There are two types of interrupt :
 1- ASYNCHRONOUS : caused by Hardware interrupt 
 2- SYNCHRONOUS : caused by software interrupt
 
@@ -33,7 +33,7 @@ We can say there is 1 - Maskable interrupts : interrupts we can control (ENABLE-
 - INtx : when the pin get 5V the interrupt happens 
 - RBx : when the pin has voltage change (either 5v or 0) the interrupt happens
 
-#Steps we follow when coding interrupt
+# Steps we follow when coding interrupt
 1- Disable interrupt
 2- initialize pin
 3- intialize priority
