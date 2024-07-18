@@ -38,7 +38,8 @@ We can say there is 1 - Maskable interrupts : interrupts we can control (ENABLE-
 2- initialize pin
 3- intialize priority
 4- Assign Isr that will happen
-5- Interrupt Enable
+5 - clear interrupt flag
+6- Interrupt Enable
 
 - when doing these steps we use bits we can find them in the data sheet
 ![alt text](image-2.png)
