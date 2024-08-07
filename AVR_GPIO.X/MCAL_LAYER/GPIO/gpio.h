@@ -28,6 +28,10 @@
 #define PIND_ *(volatile uint8 *)0x30
 
 /*******************Micro Functions Declarations*******/
+#define SET_BIT(REG,POS)    (REG |= (1 << POS))
+#define CLEAR_BIT(REG,POS)    (REG &= ~(1 << POS))
+#define TOGGLE_BIT(REG,POS)    (REG ^= (1 << POS))
+#define READ_BIT(REG,POS)    ((REG >> POS) & 1)
 
 /*******************Data Type Declaration***************/
 typedef enum {
@@ -58,6 +62,27 @@ typedef enum {
             PORTD_INDEX
 }port_t;
 
-/*******************Functins Declaration***************/
+typedef struct{
+  port_t port;
+  pin_t pin;
+  direction_t direction;
+  logic_t logic;
+}pin_config_t;
+
+/*******************Functions Declaration***************/
+Std_ReturnType gpio_pin_direction_initialize(const pin_config_t *obj_pin, direction_t direction);
+Std_ReturnType gpio_pin_write_logic(const pin_config_t *obj_pin,logic_t logic);
+Std_ReturnType gpio_pin_read_logic(const pin_config_t *obj_pin,logic_t *logic);
+Std_ReturnType gpio_pin_toggle_logic(const pin_config_t *obj_pin);
+Std_ReturnType gpio_pin_initialize(const pin_config_t *obj_pin);
+
+
+Std_ReturnType gpio_port_direction_initialize(const port_t port, direction_t direction);
+Std_ReturnType gpio_port_write_logic(const port_t port,logic_t logic);
+Std_ReturnType gpio_port_read_logic(const port_t port,uint8 *logic);
+Std_ReturnType gpio_port_toggle_logic(const port_t port);
+
+
+
 #endif	/* GPIO_H */
 

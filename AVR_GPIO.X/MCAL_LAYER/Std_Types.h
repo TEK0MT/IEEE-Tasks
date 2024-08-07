@@ -22,6 +22,12 @@ typedef signed short sint16;
 typedef signed int sint32;
 typedef signed long long sint64;
 
+
+typedef enum{
+    E_NOT_OK,
+            E_OK
+}status_t;
+
 /*******************Micro Declarations***************/
 #define F_CPU 8000000UL
 
