@@ -1,0 +1,271 @@
+
+AVR_GPIO.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000b4  00000000  00000000  000000b4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  0000014c  00000200  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  00000200  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  0000022f  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000080  00000000  00000000  0000023d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001107  00000000  00000000  000002bd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000072e  00000000  00000000  000013c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004e6  00000000  00000000  00001af2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000d8  00000000  00000000  00001fd8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001e3  00000000  00000000  000020b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000336  00000000  00000000  00002293  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000060  00000000  00000000  000025c9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  0000012e  0000012e  000001e2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000262c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.main    00000030  000000b4  000000b4  00000168  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .bss.counter  00000001  00800070  00800070  00000200  2**0
+                  ALLOC
+ 16 .text.gpio_port_direction_initialize 0000001a  000000e4  000000e4  00000198  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.gpio_port_write_logic 0000001a  000000fe  000000fe  000001b2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .rodata.DDR_registers 00000008  00800060  0000013c  000001f0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 19 .rodata.port_registers 00000008  00800068  00000144  000001f8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 20 .text.__dummy_fini 00000002  00000136  00000136  000001ea  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.__dummy_funcs_on_exit 00000002  00000138  00000138  000001ec  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.__dummy_simulator_exit 00000002  0000013a  0000013a  000001ee  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.exit    00000016  00000118  00000118  000001cc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text._Exit   00000004  00000132  00000132  000001e6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 30 00 	jmp	0x60	; 0x60 <__ctors_end>
+   4:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+   8:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+   c:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  10:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  14:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  18:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  1c:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  20:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  24:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  28:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  2c:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  30:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  34:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  38:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  3c:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  40:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  44:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  48:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  4c:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+  50:	0c 94 97 00 	jmp	0x12e	; 0x12e <__bad_interrupt>
+
+00000054 <.dinit>:
+  54:	00 60       	ori	r16, 0x00	; 0
+  56:	00 70       	andi	r16, 0x00	; 0
+  58:	00 01       	movw	r0, r0
+  5a:	3c 00       	.word	0x003c	; ????
+  5c:	70 00       	.word	0x0070	; ????
+  5e:	71 80       	ldd	r7, Z+1	; 0x01
+
+00000060 <__ctors_end>:
+  60:	11 24       	eor	r1, r1
+  62:	1f be       	out	0x3f, r1	; 63
+  64:	cf e5       	ldi	r28, 0x5F	; 95
+  66:	d8 e0       	ldi	r29, 0x08	; 8
+  68:	de bf       	out	0x3e, r29	; 62
+  6a:	cd bf       	out	0x3d, r28	; 61
+
+0000006c <__do_copy_data>:
+  6c:	e4 e5       	ldi	r30, 0x54	; 84
+  6e:	f0 e0       	ldi	r31, 0x00	; 0
+  70:	40 e0       	ldi	r20, 0x00	; 0
+  72:	17 c0       	rjmp	.+46     	; 0xa2 <__do_clear_bss+0x8>
+  74:	b5 91       	lpm	r27, Z+
+  76:	a5 91       	lpm	r26, Z+
+  78:	35 91       	lpm	r19, Z+
+  7a:	25 91       	lpm	r18, Z+
+  7c:	05 91       	lpm	r16, Z+
+  7e:	07 fd       	sbrc	r16, 7
+  80:	0c c0       	rjmp	.+24     	; 0x9a <__do_clear_bss>
+  82:	95 91       	lpm	r25, Z+
+  84:	85 91       	lpm	r24, Z+
+  86:	ef 01       	movw	r28, r30
+  88:	f9 2f       	mov	r31, r25
+  8a:	e8 2f       	mov	r30, r24
+  8c:	05 90       	lpm	r0, Z+
+  8e:	0d 92       	st	X+, r0
+  90:	a2 17       	cp	r26, r18
+  92:	b3 07       	cpc	r27, r19
+  94:	d9 f7       	brne	.-10     	; 0x8c <__do_copy_data+0x20>
+  96:	fe 01       	movw	r30, r28
+  98:	04 c0       	rjmp	.+8      	; 0xa2 <__do_clear_bss+0x8>
+
+0000009a <__do_clear_bss>:
+  9a:	1d 92       	st	X+, r1
+  9c:	a2 17       	cp	r26, r18
+  9e:	b3 07       	cpc	r27, r19
+  a0:	e1 f7       	brne	.-8      	; 0x9a <__do_clear_bss>
+  a2:	e0 36       	cpi	r30, 0x60	; 96
+  a4:	f4 07       	cpc	r31, r20
+  a6:	31 f7       	brne	.-52     	; 0x74 <__do_copy_data+0x8>
+  a8:	0e 94 5a 00 	call	0xb4	; 0xb4 <_etext>
+  ac:	0c 94 8c 00 	jmp	0x118	; 0x118 <exit>
+
+000000b0 <_exit>:
+  b0:	f8 94       	cli
+
+000000b2 <__stop_program>:
+  b2:	ff cf       	rjmp	.-2      	; 0xb2 <__stop_program>
+
+Disassembly of section .text:
+
+0000012e <__bad_interrupt>:
+ 12e:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.main:
+
+000000b4 <main>:
+	gpio_pin_initialize(&pin_4);
+	gpio_pin_initialize(&pin_5);
+	gpio_pin_initialize(&pin_6);
+	gpio_pin_initialize(&pin_7);
+	gpio_pin_initialize(&pin_8);*/
+    gpio_port_direction_initialize(PORTC_INDEX, GPIO_DIRECTION_OUTPUT);
+  b4:	61 e0       	ldi	r22, 0x01	; 1
+  b6:	82 e0       	ldi	r24, 0x02	; 2
+  b8:	0e 94 72 00 	call	0xe4	; 0xe4 <gpio_port_direction_initialize>
+    while (1) {
+       gpio_port_write_logic(PORTC_INDEX,counter);
+  bc:	60 91 70 00 	lds	r22, 0x0070	; 0x800070 <counter>
+  c0:	82 e0       	ldi	r24, 0x02	; 2
+  c2:	0e 94 7f 00 	call	0xfe	; 0xfe <gpio_port_write_logic>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  c6:	2f e3       	ldi	r18, 0x3F	; 63
+  c8:	8d e0       	ldi	r24, 0x0D	; 13
+  ca:	93 e0       	ldi	r25, 0x03	; 3
+  cc:	21 50       	subi	r18, 0x01	; 1
+  ce:	80 40       	sbci	r24, 0x00	; 0
+  d0:	90 40       	sbci	r25, 0x00	; 0
+  d2:	e1 f7       	brne	.-8      	; 0xcc <main+0x18>
+  d4:	00 c0       	rjmp	.+0      	; 0xd6 <main+0x22>
+  d6:	00 00       	nop
+	   _delay_ms(1000);
+	   counter++;
+  d8:	80 91 70 00 	lds	r24, 0x0070	; 0x800070 <counter>
+  dc:	8f 5f       	subi	r24, 0xFF	; 255
+  de:	80 93 70 00 	sts	0x0070, r24	; 0x800070 <counter>
+  e2:	ec cf       	rjmp	.-40     	; 0xbc <main+0x8>
+
+Disassembly of section .text.gpio_port_direction_initialize:
+
+000000e4 <gpio_port_direction_initialize>:
+ * @param direction
+ * @return 
+ */
+Std_ReturnType gpio_port_direction_initialize(const port_t port, direction_t direction){
+    Std_ReturnType ret = E_OK;
+    if(port == NULL){
+  e4:	90 e0       	ldi	r25, 0x00	; 0
+  e6:	00 97       	sbiw	r24, 0x00	; 0
+  e8:	49 f0       	breq	.+18     	; 0xfc <gpio_port_direction_initialize+0x18>
+        ret = E_NOT_OK;
+    }
+    else{
+        *DDR_registers[port] = direction;
+  ea:	88 0f       	add	r24, r24
+  ec:	99 1f       	adc	r25, r25
+  ee:	fc 01       	movw	r30, r24
+  f0:	e0 5a       	subi	r30, 0xA0	; 160
+  f2:	ff 4f       	sbci	r31, 0xFF	; 255
+  f4:	01 90       	ld	r0, Z+
+  f6:	f0 81       	ld	r31, Z
+  f8:	e0 2d       	mov	r30, r0
+  fa:	60 83       	st	Z, r22
+    }
+}
+  fc:	08 95       	ret
+
+Disassembly of section .text.gpio_port_write_logic:
+
+000000fe <gpio_port_write_logic>:
+ * @param logic
+ * @return 
+ */
+Std_ReturnType gpio_port_write_logic(const port_t port,uint8 logic){
+    Std_ReturnType ret = E_OK;
+    if(port == NULL){
+  fe:	90 e0       	ldi	r25, 0x00	; 0
+ 100:	00 97       	sbiw	r24, 0x00	; 0
+ 102:	49 f0       	breq	.+18     	; 0x116 <gpio_port_write_logic+0x18>
+        ret = E_NOT_OK;
+    }
+    else{
+        *port_registers[port] = logic;
+ 104:	88 0f       	add	r24, r24
+ 106:	99 1f       	adc	r25, r25
+ 108:	fc 01       	movw	r30, r24
+ 10a:	e8 59       	subi	r30, 0x98	; 152
+ 10c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 10e:	01 90       	ld	r0, Z+
+ 110:	f0 81       	ld	r31, Z
+ 112:	e0 2d       	mov	r30, r0
+ 114:	60 83       	st	Z, r22
+    }
+}
+ 116:	08 95       	ret
+
+Disassembly of section .text.__dummy_fini:
+
+00000136 <_fini>:
+ 136:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+00000138 <__funcs_on_exit>:
+ 138:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+0000013a <__simulator_exit>:
+ 13a:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000118 <exit>:
+ 118:	ec 01       	movw	r28, r24
+ 11a:	0e 94 9c 00 	call	0x138	; 0x138 <__funcs_on_exit>
+ 11e:	0e 94 9b 00 	call	0x136	; 0x136 <_fini>
+ 122:	ce 01       	movw	r24, r28
+ 124:	0e 94 9d 00 	call	0x13a	; 0x13a <__simulator_exit>
+ 128:	ce 01       	movw	r24, r28
+ 12a:	0e 94 99 00 	call	0x132	; 0x132 <_Exit>
+
+Disassembly of section .text._Exit:
+
+00000132 <_Exit>:
+ 132:	0e 94 58 00 	call	0xb0	; 0xb0 <_exit>
