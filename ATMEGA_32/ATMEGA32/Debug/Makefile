@@ -35,21 +35,25 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../ECU_LAYER/BUTTON \
 ../ECU_LAYER/LCD \
+../ECU_LAYER/KRYPAD \
 ../ECU_LAYER/Seven_Segment \
 ../MCAL_LAYER \
 ../MCAL_LAYER/GPIO \
 ../ECU_LAYER \
-../MCAL_LAYER/INTERRUPTS
+../MCAL_LAYER/INTERRUPTS \
+../MCAL_LAYER/PORT
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../ECU_LAYER/BUTTON/ecu_button.c \
+../ECU_LAYER/KRYPAD/ecu_keypad.c \
 ../ECU_LAYER/LCD/ecu_lcd.c \
 ../ECU_LAYER/Seven_Segment/ecu_seven_segment.c \
 ../main.c \
 ../MCAL_LAYER/GPIO/gpio.c \
-../MCAL_LAYER/INTERRUPTS/external_interrupt.c
+../MCAL_LAYER/INTERRUPTS/external_interrupt.c \
+../MCAL_LAYER/PORT/port.c
 
 
 PREPROCESSING_SRCS += 
@@ -60,35 +64,43 @@ ASM_SRCS +=
 
 OBJS +=  \
 ECU_LAYER/BUTTON/ecu_button.o \
+ECU_LAYER/KRYPAD/ecu_keypad.o \
 ECU_LAYER/LCD/ecu_lcd.o \
 ECU_LAYER/Seven_Segment/ecu_seven_segment.o \
 main.o \
 MCAL_LAYER/GPIO/gpio.o \
-MCAL_LAYER/INTERRUPTS/external_interrupt.o
+MCAL_LAYER/INTERRUPTS/external_interrupt.o \
+MCAL_LAYER/PORT/port.o
 
 OBJS_AS_ARGS +=  \
 ECU_LAYER/BUTTON/ecu_button.o \
+ECU_LAYER/KRYPAD/ecu_keypad.o \
 ECU_LAYER/LCD/ecu_lcd.o \
 ECU_LAYER/Seven_Segment/ecu_seven_segment.o \
 main.o \
 MCAL_LAYER/GPIO/gpio.o \
-MCAL_LAYER/INTERRUPTS/external_interrupt.o
+MCAL_LAYER/INTERRUPTS/external_interrupt.o \
+MCAL_LAYER/PORT/port.o
 
 C_DEPS +=  \
 ECU_LAYER/BUTTON/ecu_button.d \
+ECU_LAYER/KRYPAD/ecu_keypad.d \
 ECU_LAYER/LCD/ecu_lcd.d \
 ECU_LAYER/Seven_Segment/ecu_seven_segment.d \
 main.d \
 MCAL_LAYER/GPIO/gpio.d \
-MCAL_LAYER/INTERRUPTS/external_interrupt.d
+MCAL_LAYER/INTERRUPTS/external_interrupt.d \
+MCAL_LAYER/PORT/port.d
 
 C_DEPS_AS_ARGS +=  \
 ECU_LAYER/BUTTON/ecu_button.d \
+ECU_LAYER/KRYPAD/ecu_keypad.d \
 ECU_LAYER/LCD/ecu_lcd.d \
 ECU_LAYER/Seven_Segment/ecu_seven_segment.d \
 main.d \
 MCAL_LAYER/GPIO/gpio.d \
-MCAL_LAYER/INTERRUPTS/external_interrupt.d
+MCAL_LAYER/INTERRUPTS/external_interrupt.d \
+MCAL_LAYER/PORT/port.d
 
 OUTPUT_FILE_PATH +=ATMEGA32.elf
 
@@ -105,6 +117,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 ECU_LAYER/BUTTON/ecu_button.o: ../ECU_LAYER/BUTTON/ecu_button.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECU_LAYER/KRYPAD/ecu_keypad.o: ../ECU_LAYER/KRYPAD/ecu_keypad.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -140,6 +159,13 @@ MCAL_LAYER/GPIO/gpio.o: ../MCAL_LAYER/GPIO/gpio.c
 	
 
 MCAL_LAYER/INTERRUPTS/external_interrupt.o: ../MCAL_LAYER/INTERRUPTS/external_interrupt.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL_LAYER/PORT/port.o: ../MCAL_LAYER/PORT/port.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -1,11 +1,8 @@
-ECU_LAYER/Seven_Segment/ecu_seven_segment.d \
- ECU_LAYER/Seven_Segment/ecu_seven_segment.o: \
- ../ECU_LAYER/Seven_Segment/ecu_seven_segment.c \
- ../ECU_LAYER/Seven_Segment/ecu_seven_segment.h \
- ../ECU_LAYER/Seven_Segment/../../MCAL_LAYER/GPIO/gpio.h \
- ../ECU_LAYER/Seven_Segment/../../MCAL_LAYER/GPIO/gpio_cfg.h \
- d:\ieee\ieee-tasks\atmega_32\atmega32\mcal_layer\std_types.h \
- d:\ieee\ieee-tasks\atmega_32\atmega32\mcal_layer\Std_libraries.h \
+MCAL_LAYER/PORT/port.d MCAL_LAYER/PORT/port.o: ../MCAL_LAYER/PORT/port.c \
+ ../MCAL_LAYER/PORT/port.h ../MCAL_LAYER/PORT/../GPIO/gpio.h \
+ ../MCAL_LAYER/PORT/../GPIO/gpio_cfg.h \
+ ../MCAL_LAYER/PORT/../GPIO/../Std_Types.h \
+ ../MCAL_LAYER/PORT/../GPIO/../Std_libraries.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -25,15 +22,15 @@ ECU_LAYER/Seven_Segment/ecu_seven_segment.d \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-../ECU_LAYER/Seven_Segment/ecu_seven_segment.h:
+../MCAL_LAYER/PORT/port.h:
 
-../ECU_LAYER/Seven_Segment/../../MCAL_LAYER/GPIO/gpio.h:
+../MCAL_LAYER/PORT/../GPIO/gpio.h:
 
-../ECU_LAYER/Seven_Segment/../../MCAL_LAYER/GPIO/gpio_cfg.h:
+../MCAL_LAYER/PORT/../GPIO/gpio_cfg.h:
 
-d:\ieee\ieee-tasks\atmega_32\atmega32\mcal_layer\std_types.h:
+../MCAL_LAYER/PORT/../GPIO/../Std_Types.h:
 
-d:\ieee\ieee-tasks\atmega_32\atmega32\mcal_layer\Std_libraries.h:
+../MCAL_LAYER/PORT/../GPIO/../Std_libraries.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

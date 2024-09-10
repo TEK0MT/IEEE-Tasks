@@ -11,6 +11,7 @@ static void(*INT2_HANDLER)(void);
 
 static void mode_select_int0(const INTx *intx);
 static void mode_select_int1(const INTx *intx);
+static void mode_select_int2(const INTx *intx);
 
 Std_ReturnType Intx_Init(const INTx *intx){
 	Std_ReturnType ret = E_OK;
@@ -38,6 +39,7 @@ Std_ReturnType Intx_Init(const INTx *intx){
 		else if(intx->intt == INT2){
 			SET_BIT(GICR,5);
 			SET_BIT(GIFR,5);
+			mode_select_int2(intx);
 			INT2_HANDLER = intx->EXT_HANDLER;
 		}
 	}
@@ -114,6 +116,19 @@ static void mode_select_int1(const INTx *intx){
 	else if(intx->mode == rising_edge){
 		SET_BIT(MCUCR,2);
 		SET_BIT(MCUCR,3);
+	}
+	else{}
+}
+
+static void mode_select_int2(const INTx *intx){
+
+	 if(intx->mode == failing_edge){
+		
+		CLEAR_BIT(MCUCSR,6);
+	}
+	else if(intx->mode == rising_edge){
+		SET_BIT(MCUCSR,6);
+		
 	}
 	else{}
 }
